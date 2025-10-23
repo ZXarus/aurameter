@@ -159,8 +159,8 @@ const HeroSection = () => {
                   }}
                 >
                   <span className="block animate-pulse-slow mt-0 pt-0 font-serif italic font-bold text-[clamp(70px,15vw,180px)] md:text-[clamp(60px,12vw,180px)]">AuraMeter</span>
-                  <span className={`block mt-2 pt-2 ${isMobile ? 'text-[clamp(24px,4vw,48px)] text-center' : ''}`}>Social Media</span>
-                  <span className={`block mt-2 pt-2 italic font-serif ${isMobile ? 'text-[clamp(24px,4vw,48px)] text-center' : ''}`}>that Heals</span>
+                  <span className="block mt-2 pt-2">Social Media</span>
+                  <span className="block mt-2 pt-2 italic font-serif">that Heals</span>
                 </h1>
               </div>
               
@@ -207,14 +207,14 @@ const HeroSection = () => {
             <div className="lg:col-span-5 xl:col-span-4 space-y-1 pt-0 flex flex-col justify-center h-full">
               <div className={`text-center lg:text-right transition-all duration-1000 delay-500 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-8 md:mt-0`}>
                 <div className="relative inline-block">
-                  <p className={`text-[clamp(18px,2vw,24px)] leading-[1.3] text-white font-bold mb-3 relative z-10 ${isMobile ? 'text-center' : ''}`}>
+                  <p className="text-[clamp(18px,2vw,24px)] leading-[1.3] text-white font-bold mb-3 relative z-10">
                     Stop chasing likes.<br />
                     <span className="text-yellow-400">Start growing your aura.</span>
                   </p>
                   <div className="absolute -inset-1 bg-yellow-400 opacity-10 blur rounded-lg"></div>
                 </div>
                 <div className="relative inline-block mt-6">
-                  <p className={`text-[clamp(14px,1.5vw,18px)] leading-[1.6] text-white/80 max-w-md mx-auto lg:mx-0 lg:ml-auto italic relative z-10 ${isMobile ? 'text-center' : ''}`}>
+                  <p className="text-[clamp(14px,1.5vw,18px)] leading-[1.6] text-white/80 max-w-md mx-auto lg:mx-0 lg:ml-auto italic relative z-10">
                     <span className="text-white">AI-powered emotional intelligence</span> meets social connection. 
                     Earn rewards for <span className="text-yellow-400 font-bold">authenticity</span>, not attention.
                   </p>
