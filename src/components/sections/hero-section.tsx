@@ -120,7 +120,7 @@ const HeroSection = () => {
           }
         `}
       </style>
-      <section className="relative flex items-center justify-center min-h-screen text-foreground overflow-hidden py-16 md:py-24">
+      <section className="relative flex items-center justify-center min-h-screen text-foreground overflow-hidden py-0">
         <AnimatedBackgroundText scrollY={scrollY} isMobile={isMobile} />
         
         {/* Floating particles with parallax effect - Reduced for mobile performance */}
@@ -146,55 +146,55 @@ const HeroSection = () => {
           </div>
         )}
         
-        <div className="relative z-10 w-full container py-8 sm:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center min-h-[60vh]">
+        <div className="relative z-10 w-full container py-0 mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center min-h-[30vh] pt-0">
             
             {/* Main Artistic Typography - Left/Center */}
-            <div className="lg:col-span-7 xl:col-span-8">
+            <div className="lg:col-span-7 xl:col-span-8 pt-0 mt-0">
               <div className={`transition-all duration-1000 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <h1 
-                  className="text-[clamp(60px,12vw,180px)] font-bold leading-[0.85] tracking-[-0.03em]"
+                  className="text-[clamp(60px,12vw,180px)] font-bold leading-[0.85] tracking-[-0.03em] mt-0 pt-0"
                   style={isMobile ? {} : { 
                     transform: `translateY(${scrollY * 0.05}px)`
                   }}
                 >
-                  <span className="block animate-pulse-slow">AuraMeter</span>
-                  <span className="block mt-2 sm:mt-3">Social Media</span>
-                  <span className="block mt-2 sm:mt-3 italic">that Heals</span>
+                  <span className="block animate-pulse-slow mt-0 pt-0 font-serif italic font-bold text-[clamp(70px,15vw,180px)] md:text-[clamp(60px,12vw,180px)]">AuraMeter</span>
+                  <span className={`block mt-2 pt-2 ${isMobile ? 'text-[clamp(24px,4vw,48px)] text-center' : ''}`}>Social Media</span>
+                  <span className={`block mt-2 pt-2 italic font-serif ${isMobile ? 'text-[clamp(24px,4vw,48px)] text-center' : ''}`}>that Heals</span>
                 </h1>
               </div>
               
-              {/* Bottom Text with increased spacing for mobile */}
-              <div className={`mt-8 sm:mt-10 lg:mt-12 transition-all duration-1000 delay-300 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <div className="flex items-center gap-4 sm:gap-5 flex-wrap">
+              {/* Bottom Text positioned in corner */}
+              <div className={`absolute bottom-4 right-4 left-auto transform-none transition-all duration-1000 delay-300 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="flex items-center gap-1 flex-wrap justify-end">
                   {!isMobile ? (
                     <>
                       <div className="relative animate-float" style={{ animationDelay: '1s', animationDuration: '5s' }}>
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
                           <span className="text-overline">WE</span>
                         </div>
                       </div>
                       <div className="relative animate-float" style={{ animationDelay: '2s', animationDuration: '5s' }}>
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
                           <span className="text-overline">ARE</span>
                         </div>
                       </div>
                       <div className="animate-float" style={{ animationDelay: '3s', animationDuration: '5s' }}>
-                        <p className="text-[clamp(20px,2.5vw,32px)] font-bold leading-tight tracking-tight">
+                        <p className="text-[clamp(20px,2.5vw,32px)] font-bold leading-tight tracking-tight text-right">
                           YOUR<br />AURA
                         </p>
                       </div>
                     </>
                   ) : (
                     // Simplified version for mobile
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
-                        <span className="text-[10px] font-bold">WE</span>
+                    <div className="flex items-center gap-1">
+                      <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center">
+                        <span className="text-[8px] font-bold">WE</span>
                       </div>
-                      <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
-                        <span className="text-[10px] font-bold">ARE</span>
+                      <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center">
+                        <span className="text-[8px] font-bold">ARE</span>
                       </div>
-                      <p className="text-[20px] font-bold leading-tight">
+                      <p className="text-[16px] font-bold leading-tight text-right">
                         YOUR<br />AURA
                       </p>
                     </div>
@@ -203,27 +203,33 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Right Side Content */}
-            <div className="lg:col-span-5 xl:col-span-4 space-y-6">
-              <div className={`text-center lg:text-right transition-all duration-1000 delay-500 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                <p className="text-[clamp(16px,1.8vw,20px)] leading-[1.4] text-white/80 mb-4">
-                  Stop chasing likes.<br />
-                  Start growing your aura.
-                </p>
-                <p className="text-[clamp(12px,1.3vw,16px)] leading-[1.5] text-white/60 max-w-md mx-auto lg:mx-0 lg:ml-auto">
-                  AI-powered emotional intelligence meets social connection. 
-                  Earn rewards for authenticity, not attention.
-                </p>
+            {/* Right Side Content - Centered vertically */}
+            <div className="lg:col-span-5 xl:col-span-4 space-y-1 pt-0 flex flex-col justify-center h-full">
+              <div className={`text-center lg:text-right transition-all duration-1000 delay-500 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} mt-8 md:mt-0`}>
+                <div className="relative inline-block">
+                  <p className={`text-[clamp(18px,2vw,24px)] leading-[1.3] text-white font-bold mb-3 relative z-10 ${isMobile ? 'text-center' : ''}`}>
+                    Stop chasing likes.<br />
+                    <span className="text-yellow-400">Start growing your aura.</span>
+                  </p>
+                  <div className="absolute -inset-1 bg-yellow-400 opacity-10 blur rounded-lg"></div>
+                </div>
+                <div className="relative inline-block mt-6">
+                  <p className={`text-[clamp(14px,1.5vw,18px)] leading-[1.6] text-white/80 max-w-md mx-auto lg:mx-0 lg:ml-auto italic relative z-10 ${isMobile ? 'text-center' : ''}`}>
+                    <span className="text-white">AI-powered emotional intelligence</span> meets social connection. 
+                    Earn rewards for <span className="text-yellow-400 font-bold">authenticity</span>, not attention.
+                  </p>
+                  <div className="absolute -inset-1 bg-white opacity-5 blur rounded-lg"></div>
+                </div>
               </div>
 
               {/* Decorative Circle with Download Button */}
-              <div className={`relative flex items-center justify-center py-4 transition-all duration-1000 delay-700 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56">
-                  {/* Rotating circle background - REPLACED */}
+              <div className={`relative flex items-center justify-center py-2 transition-all duration-1000 delay-700 ${isMounted ? 'opacity-100' : 'opacity-0'} mt-10 md:mt-0`}>
+                <div className="relative w-32 h-32">
+                  {/* Rotating circle background */}
                   <div 
                     className="absolute inset-0"
                     style={{ 
-                      animation: `spin 25s linear infinite`,
+                      animation: `spin 20s linear infinite`,
                     }}
                   >
                     <Image
@@ -234,15 +240,18 @@ const HeroSection = () => {
                     />
                   </div>
                   
-                  {/* Download text inside the circle with enhanced styling */}
+                  {/* Download text inside the circle */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-2 z-10">
-                    <p className="text-[16px] sm:text-[18px] font-extrabold leading-tight text-yellow-400 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)] animate-pulse tracking-wider">
+                    <p className="text-[12px] font-bold leading-tight text-yellow-400">
                       DOWNLOAD
                     </p>
-                    <p className="text-[14px] sm:text-[16px] font-extrabold italic underline underline-offset-4 decoration-2 decoration-yellow-400 text-yellow-400 drop-shadow-[0_0_6px_rgba(255,215,0,0.6)] animate-pulse-slow mt-1">
+                    <p className="text-[10px] font-bold italic text-yellow-400 mt-1">
                       START AURA FARMING
                     </p>
                   </div>
+                  
+                  {/* Simple golden border */}
+                  <div className="absolute inset-0 rounded-full border-2 border-yellow-400/50"></div>
                 </div>
               </div>
 
@@ -252,14 +261,14 @@ const HeroSection = () => {
         
         {/* Scroll Down Indicator */}
         <div 
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer transition-all duration-300"
+          className="absolute bottom-1 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer transition-all duration-300"
           onClick={scrollToNextSection}
           style={isMobile ? {} : { 
             transform: `translateX(-50%) translateY(${waveEffect}px)`,
             opacity: Math.max(0, 1 - scrollY * 0.001)
           }}
         >
-          <ChevronDownIcon className="w-6 h-6 text-white/60 hover:text-white transition-colors" />
+          <ChevronDownIcon className="w-4 h-4 text-white/60 hover:text-white transition-colors" />
         </div>
       </section>
     </>
