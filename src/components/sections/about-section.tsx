@@ -238,6 +238,7 @@ const AboutSection = () => {
         </div>
       </div>
       
+
       <style jsx>{`
         @keyframes spin {
           from {

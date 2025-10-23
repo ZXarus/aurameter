@@ -10,6 +10,7 @@ const NavigationHeader = () => {
         { href: '#recognition', label: 'Recognition' },
         { href: '#contact-us', label: 'Contact us' },
         { href: '#hello', label: 'Hello' },
+        { href: '/team', label: 'Team' }, // Added Team link
     ];
 
     // The original HTML repeats the content many times for a smooth visual. Duplicating it once is sufficient for a seamless loop effect.
@@ -54,26 +55,38 @@ const NavigationHeader = () => {
 
                 <div className="hidden md:flex items-center gap-x-8 lg:gap-x-10">
                     {navLinks.map((link, index) => (
-                        <Link 
-                            href={link.href} 
-                            key={link.label} 
-                            className="relative group text-navigation transition-colors duration-300 animate-slide-in-right" 
-                            style={{ animationDelay: `${index * 0.1}s` }}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                const targetId = link.href.substring(1);
-                                const targetElement = document.getElementById(targetId);
-                                if (targetElement) {
-                                    targetElement.scrollIntoView({ 
-                                        behavior: 'smooth',
-                                        block: 'start'
-                                    });
-                                }
-                            }}
-                        >
-                            <span>{link.label}</span>
-                            <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
-                        </Link>
+                        link.href.startsWith('#') ? (
+                            <Link 
+                                href={link.href} 
+                                key={link.label} 
+                                className="relative group text-navigation transition-colors duration-300 animate-slide-in-right" 
+                                style={{ animationDelay: `${index * 0.1}s` }}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    const targetId = link.href.substring(1);
+                                    const targetElement = document.getElementById(targetId);
+                                    if (targetElement) {
+                                        targetElement.scrollIntoView({ 
+                                            behavior: 'smooth',
+                                            block: 'start'
+                                        });
+                                    }
+                                }}
+                            >
+                                <span>{link.label}</span>
+                                <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                            </Link>
+                        ) : (
+                            <Link 
+                                href={link.href} 
+                                key={link.label} 
+                                className="relative group text-navigation transition-colors duration-300 animate-slide-in-right" 
+                                style={{ animationDelay: `${index * 0.1}s` }}
+                            >
+                                <span>{link.label}</span>
+                                <span className="absolute -bottom-1 left-0 w-full h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                            </Link>
+                        )
                     ))}
                 </div>
             </nav>

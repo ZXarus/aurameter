@@ -1,8 +1,90 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useIsMobile } from '@/hooks/use-mobile';
+import Link from 'next/link';
+
+// Circle component for moving text elements
+const MovingCircle = ({ text, index }: { text: string; index: number }) => {
+  const circleRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (!circleRef.current) return;
+    
+    // Initialize random position and velocity
+    const circle = circleRef.current;
+    const container = circle.parentElement;
+    if (!container) return;
+    
+    const containerRect = container.getBoundingClientRect();
+    const maxX = containerRect.width - circle.offsetWidth;
+    const maxY = containerRect.height - circle.offsetHeight;
+    
+    // Random starting position
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+    
+    // Random velocity
+    let vx = (Math.random() - 0.5) * 2;
+    let vy = (Math.random() - 0.5) * 2;
+    
+    // Ensure minimum speed
+    if (Math.abs(vx) < 0.2) vx = 0.2 * (vx > 0 ? 1 : -1);
+    if (Math.abs(vy) < 0.2) vy = 0.2 * (vy > 0 ? 1 : -1);
+    
+    // Animation function
+    const animate = () => {
+      if (!circle || !container) return;
+      
+      // Update position
+      x += vx;
+      y += vy;
+      
+      // Boundary collision - bounce
+      if (x <= 0 || x >= maxX) {
+        vx = -vx;
+        x = x <= 0 ? 0 : maxX;
+      }
+      if (y <= 0 || y >= maxY) {
+        vy = -vy;
+        y = y <= 0 ? 0 : maxY;
+      }
+      
+      // Apply new position
+      circle.style.transform = `translate(${x}px, ${y}px)`;
+      
+      // Continue animation
+      requestAnimationFrame(animate);
+    };
+    
+    // Start animation
+    const animationId = requestAnimationFrame(animate);
+    
+    // Cleanup
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, [index]);
+  
+  return (
+    <div
+      ref={circleRef}
+      className="absolute rounded-full border-2 border-white flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-yellow-400 hover:text-yellow-400"
+      style={{
+        width: '120px',
+        height: '120px',
+        left: '0',
+        top: '0',
+        willChange: 'transform',
+      }}
+    >
+      <span className="text-center font-['Dancing_Script'] font-semibold text-white text-lg">
+        {text}
+      </span>
+    </div>
+  );
+};
 
 const HelloSection = () => {
   const isMobile = useIsMobile();
@@ -44,6 +126,9 @@ const HelloSection = () => {
     ? "w-[50px] h-[1px]" 
     : "w-[70px] sm:w-[80px] md:w-[90px] lg:w-[100px] h-[1px]";
 
+  // Texts for the moving circles
+  const circleTexts = ["About", "Work", "Recognition", "Contact us"];
+
   return (
     <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
@@ -51,8 +136,17 @@ const HelloSection = () => {
       
       <div className="container relative z-10">
         <div className="w-full min-h-screen flex flex-col justify-center items-center py-20 px-4 sm:px-6 md:px-10 lg:px-20">
+          {/* Moving Circles Container - New Feature */}
+          <div className="fixed inset-0 pointer-events-none z-10">
+            <div className="relative w-full h-full">
+              {circleTexts.map((text, index) => (
+                <MovingCircle key={index} text={text} index={index} />
+              ))}
+            </div>
+          </div>
+          
           {/* Main Content */}
-          <div className="main-content text-center max-w-[1400px] w-full">
+          <div className="main-content text-center max-w-[1400px] w-full relative z-20">
             {/* Hero Text */}
             <div className="hero-text mb-12 sm:mb-16 md:mb-20 lg:mb-28">
               <div className={`text-line font-['Dancing_Script'] font-semibold mb-0 ${heroTextSize}`}>
@@ -79,6 +173,14 @@ const HelloSection = () => {
                   className={`${imageSize} animate-float`} 
                   style={{ animationDuration: '6s' }}  
                 />
+                {/* Button between Face and Sun illustrations */}
+                <Link href="/team">
+                  <button 
+                    className="px-4 py-2 bg-yellow-400 text-black font-bold rounded-full hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105"
+                  >
+                    See the Team
+                  </button>
+                </Link>
                 <Image 
                   src={sunSvgUrl} 
                   alt="Sun illustration" 
@@ -100,10 +202,10 @@ const HelloSection = () => {
               </div>
             </div>
 
-            {/* Email */}
+            {/* Email - Changed to "see the team" */}
             <div className="email-section my-12 sm:my-14 md:my-16 lg:my-20">
               <div className={`email font-['PT_Serif'] font-normal border-white inline-block tracking-normal ${emailSize}`}>
-                aurameter@gmail.com
+                see the team
               </div>
             </div>
 

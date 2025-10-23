@@ -146,7 +146,6 @@ const HeroSection = () => {
           </div>
         )}
         
-
         <div className="relative z-10 w-full container py-0 mt-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center min-h-[30vh] pt-0">
             
@@ -154,14 +153,14 @@ const HeroSection = () => {
             <div className="lg:col-span-7 xl:col-span-8 pt-0 mt-0">
               <div className={`transition-all duration-1000 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <h1 
-                  className="text-[clamp(50px,10vw,150px)] font-bold leading-[0.85] tracking-[-0.03em] mt-0 pt-0"
+                  className="text-[clamp(60px,12vw,180px)] font-bold leading-[0.85] tracking-[-0.03em] mt-0 pt-0"
                   style={isMobile ? {} : { 
                     transform: `translateY(${scrollY * 0.05}px)`
                   }}
                 >
-                  <span className="block animate-pulse-slow mt-0 pt-0 font-serif italic font-bold text-[clamp(60px,12vw,150px)] md:text-[clamp(50px,10vw,150px)]">AuraMeter</span>
-                  <span className="block mt-2 pt-2 text-[clamp(50px,10vw,150px)]">Social Media</span>
-                  <span className="block mt-2 pt-2 italic font-serif text-[clamp(50px,10vw,150px)]">that Heals</span>
+                  <span className="block animate-pulse-slow mt-0 pt-0 font-serif italic font-bold text-[clamp(70px,15vw,180px)] md:text-[clamp(60px,12vw,180px)]">AuraMeter</span>
+                  <span className="block mt-2 pt-2">Social Media</span>
+                  <span className="block mt-2 pt-2 italic font-serif">that Heals</span>
                 </h1>
               </div>
               
