@@ -168,17 +168,19 @@ const TeamSection = () => {
           
           {/* Header */}
           <div className="text-center mb-8 md:mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold italic tracking-wider mb-1 text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold italic tracking-tight mb-2 text-yellow-400 drop-shadow-lg">
               Don't hesitate
             </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold italic tracking-wider mb-1 text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold italic tracking-tight mb-2 text-white drop-shadow-lg">
               to say Hello
             </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold italic tracking-wider mb-1 text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-extrabold italic tracking-tight mb-2 text-white drop-shadow-lg">
               to our studio
             </h1>
-            <div className="w-16 sm:w-20 md:w-24 h-0.5 bg-white mx-auto my-4 md:my-6"></div>
-            <p className="text-xs sm:text-sm md:text-base tracking-widest text-gray-400 font-serif italic">40 Creative Minds</p>
+            <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent mx-auto my-6 md:my-8 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg tracking-widest text-gray-300 font-serif italic font-bold">
+              40 Creative Minds
+            </p>
           </div>
 
           {/* Main content area */}

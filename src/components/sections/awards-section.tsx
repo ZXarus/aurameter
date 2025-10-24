@@ -63,10 +63,10 @@ const AwardsSection = () => {
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center lg:items-start justify-between">
         {/* Left side - Heading */}
         <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0 text-center lg:text-left">
-          <h2 className={`${headingSize} md:${headingSizeMd} font-['Audiowide'] text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/80 leading-[0.95] tracking-[-0.02em] mb-8 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]`}>
-            Earn Rewards
+          <h2 className={`${headingSize} md:${headingSizeMd} font-serif font-extrabold italic leading-[0.95] tracking-tight mb-8`}>
+            <span className="text-yellow-400">Earn</span> Rewards
             <br />
-            for Your AURA
+            for Your <span className="text-yellow-400">AURA</span>
           </h2>
           <p className={`${textSize} text-gray-400/90 leading-[1.6] max-w-[520px] mx-auto lg:mx-0`}>
             Transform your social media experience...

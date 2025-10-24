@@ -134,7 +134,7 @@ const AboutSection = () => {
           {/* Centered content inside the rotating circles */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
             <h2 
-              className="text-[32px] md:text-[48px] font-bold leading-[1.2] tracking-[-0.01em] mb-8"
+              className="text-[36px] md:text-[50px] font-extrabold leading-[1.1] tracking-tight mb-8 font-serif italic text-yellow-400"
               style={{
                 fontFamily:'var(--font-display-serif)',
               }}
@@ -143,9 +143,9 @@ const AboutSection = () => {
             </h2>
             
             <div className="max-w-[920px] mx-auto animate-fade-in">
-              <ul className="text-[clamp(18px,2.5vw,28px)] leading-[1.15] tracking-tight flex flex-col items-center" style={{fontFamily:'var(--font-display-serif)'}}>
+              <ul className="text-[clamp(20px,2.5vw,30px)] leading-[1.2] tracking-normal flex flex-col items-center gap-y-2" style={{fontFamily:'var(--font-display-serif)'}}>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-bold italic" 
+                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.1s'
                   } : { 
@@ -154,11 +154,11 @@ const AboutSection = () => {
                     opacity: isInView ? 1 : 0
                   }}
                 >
-                  <span>Authentic</span>
-                  <em className="italic">Stories</em>
+                  <span className="font-extrabold text-white">Authentic</span>
+                  <em className="italic text-yellow-400 font-extrabold">Stories</em>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-bold italic" 
+                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.2s'
                   } : { 
@@ -167,11 +167,11 @@ const AboutSection = () => {
                     opacity: isInView ? 1 : 0
                   }}
                 >
-                  <span>AI</span>
-                  <em className="italic">Companion</em>
+                  <span className="font-extrabold text-yellow-400">AI</span>
+                  <em className="italic text-white font-extrabold">Companion</em>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-bold italic" 
+                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.3s'
                   } : { 
@@ -180,11 +180,11 @@ const AboutSection = () => {
                     opacity: isInView ? 1 : 0
                   }}
                 >
-                  <em className="italic">Emotional</em>
-                  <span>Intelligence</span>
+                  <em className="italic text-white font-extrabold">Emotional</em>
+                  <span className="font-extrabold text-yellow-400">Intelligence</span>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-bold italic" 
+                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.4s'
                   } : { 
@@ -193,11 +193,11 @@ const AboutSection = () => {
                     opacity: isInView ? 1 : 0
                   }}
                 >
-                  <em className="italic">Real</em>
-                  <span>Rewards</span>
+                  <em className="italic text-yellow-400 font-extrabold">Real</em>
+                  <span className="font-extrabold text-white">Rewards</span>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-bold italic" 
+                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.5s'
                   } : { 
@@ -206,11 +206,11 @@ const AboutSection = () => {
                     opacity: isInView ? 1 : 0
                   }}
                 >
-                  <span>Positive</span>
-                  <span className="text-yellow-300 font-semibold">Energy</span>
+                  <span className="font-extrabold text-white">Positive</span>
+                  <span className="text-yellow-300 font-extrabold font-serif">Energy</span>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-bold italic" 
+                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.6s'
                   } : { 
@@ -219,16 +219,16 @@ const AboutSection = () => {
                     opacity: isInView ? 1 : 0
                   }}
                 >
-                  <em className="italic">Mindful</em>
-                  <span>Connection</span>
+                  <em className="italic text-yellow-400 font-extrabold">Mindful</em>
+                  <span className="font-extrabold text-white">Connection</span>
                 </li>
               </ul>
             </div>
             
             {/* Know More button */}
-            <div className="mt-8 flex justify-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="mt-10 flex justify-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
               <button 
-                className="px-4 py-1 border border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-xs"
+                className="px-5 py-2 border-2 border-yellow-400 text-yellow-400 font-extrabold uppercase tracking-wider hover:bg-yellow-400 hover:text-black transition-all duration-300 text-sm font-serif italic rounded-full"
                 style={{ fontFamily: 'var(--font-display-serif)' }}
               >
                 Know More
