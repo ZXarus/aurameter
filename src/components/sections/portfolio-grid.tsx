@@ -228,11 +228,16 @@ const PortfolioGrid = () => {
     return (
       <section ref={sectionRef} id="work" className="relative py-12 sm:py-16 md:py-24 overflow-hidden">
         <div className="container relative z-10">
-          <h2 className="text-[24px] sm:text-[28px] md:text-[clamp(28px,3.5vw,52px)] font-bold leading-[1.1] tracking-[-0.01em] mb-8 sm:mb-12 md:mb-16 text-center">
-            AI that Uplifts,<br />Not Judges
+          <h2 className="text-[24px] sm:text-[28px] md:text-[clamp(28px,3.5vw,52px)] font-extrabold leading-[1.1] tracking-[-0.01em] mb-8 sm:mb-12 md:mb-16 text-center w-full">
+            <span className="block text-center justify-center">
+              <span className="text-yellow-400">AI</span> that <span className="italic font-serif">Uplifts</span>,
+            </span>
+            <span className="block mt-2 text-center justify-center">
+              Not <span className="font-serif italic font-bold">Judges</span>
+            </span>
           </h2>
           <div className="flex justify-center">
-            <div className="animate-pulse">Loading...</div>
+            <div className="animate-pulse text-yellow-400">Loading...</div>
           </div>
         </div>
       </section>
@@ -272,9 +277,17 @@ const PortfolioGrid = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-[24px] sm:text-[28px] md:text-[clamp(28px,3.5vw,52px)] font-bold leading-[1.1] tracking-[-0.01em] mb-8 sm:mb-12 md:mb-16 text-center text-white"
+          className="text-[clamp(32px,4vw,64px)] font-extrabold leading-tight tracking-[-0.03em] mb-8 sm:mb-12 md:mb-16 text-center text-white relative inline-block mx-auto w-full"
         >
-          AI that Uplifts,<br />Not Judges
+          <span className="relative z-10 block text-center justify-center">
+            <span className="text-yellow-400">AI</span> that <span className="italic font-serif">Uplifts</span>,
+          </span>
+          <span className="block mt-2 text-center justify-center">
+            Not <span className="font-serif italic font-bold">Judges</span>
+          </span>
+          
+          {/* Decorative underline */}
+          <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent rounded-full"></span>
         </motion.h2>
         
         <div className="relative overflow-hidden py-6 sm:py-8">
