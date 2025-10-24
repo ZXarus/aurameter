@@ -53,8 +53,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
@@ -120,8 +122,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
@@ -186,8 +190,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
@@ -252,8 +258,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
@@ -318,8 +326,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
@@ -384,8 +394,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
@@ -450,8 +462,10 @@ const AboutTeamSection = () => {
                 <img 
                   src={member.image} 
                   alt={member.name} 
-                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block transition-all duration-300 cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full object-cover mx-auto mb-3 sm:mb-4 md:mb-6 block grayscale transition-all duration-300 cursor-pointer"
                   onClick={handlePhotoClick}
+                  onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                  onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                   style={{ transition: 'all 0.3s ease' }}
                 />
                 <h2 className="text-base sm:text-lg md:text-xl font-bold uppercase text-white mb-1 sm:mb-2 tracking-[0.5px] break-words">
