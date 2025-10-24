@@ -382,6 +382,8 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     position: relative;
+    /* Ensure proper spacing */
+    line-height: 1.6;
   }
 
   /* Remove complex background effects */
@@ -402,6 +404,7 @@
   @media (max-width: 768px) {
     body {
       background: #000000;
+      line-height: 1.6;
     }
     
     body::before {
@@ -445,6 +448,7 @@
     font-weight: var(--font-weight-hero-h1);
     line-height: var(--leading-hero-h1);
     letter-spacing: var(--tracking-hero-h1);
+    margin-bottom: 1.5rem;
   }
 
   h2 {
@@ -452,6 +456,7 @@
     font-weight: var(--font-weight-section-h2);
     line-height: var(--leading-section-h2);
     letter-spacing: var(--tracking-section-h2);
+    margin-bottom: 1.25rem;
   }
 
   h3 {
@@ -459,6 +464,7 @@
     font-weight: var(--font-weight-sub-heading-h3);
     line-height: var(--leading-sub-heading-h3);
     letter-spacing: var(--tracking-sub-heading-h3);
+    margin-bottom: 1rem;
   }
 
   .text-body-large {
@@ -466,6 +472,7 @@
     font-weight: var(--font-weight-body-large);
     line-height: var(--leading-body-large);
     letter-spacing: var(--tracking-body-large);
+    margin-bottom: 1rem;
   }
 
   .text-body-regular {
@@ -473,6 +480,7 @@
     font-weight: var(--font-weight-body-regular);
     line-height: var(--leading-body-regular);
     letter-spacing: var(--tracking-body-regular);
+    margin-bottom: 1rem;
   }
 
   .text-body-small {
@@ -480,6 +488,7 @@
     font-weight: var(--font-weight-body-small);
     line-height: var(--leading-body-small);
     letter-spacing: var(--tracking-body-small);
+    margin-bottom: 0.75rem;
   }
 
   .text-overline {
@@ -488,6 +497,7 @@
     line-height: var(--leading-overline);
     letter-spacing: var(--tracking-overline);
     text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
 
   .text-navigation {
@@ -516,6 +526,11 @@
     .container {
       padding-left: 20px;
       padding-right: 20px;
+    }
+    
+    /* Add extra spacing for mobile as per user preference */
+    h1, h2, h3, .text-body-large, .text-body-regular, .text-body-small {
+      margin-bottom: 1.25rem;
     }
   }
 }

@@ -1,7 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './team.css';
+import Link from 'next/link';
+import { usePageRestart } from '@/lib/hooks/use-page-restart';
+import { markPageAsActive, markPageAsInactive } from '@/lib/utils/page-transitions';
 
 const roles = ['Developer', 'Designer', 'Product Manager', 'Marketing Lead', 'DevOps Engineer', 'UX Designer', 'Data Scientist', 'QA Engineer'];
 const names = [
@@ -28,39 +31,48 @@ export default function TeamPage() {
   const centerInfoRef = useRef<HTMLDivElement>(null);
   const currentMemberIndexRef = useRef<number>(0);
   const autoShowIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isClient, setIsClient] = useState(false);
+  const resizeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const pageVisibilityRef = useRef<boolean>(true);
 
-  // Initialize members
-  useEffect(() => {
-    const members: Member[] = [];
-    for (let i = 0; i < 40; i++) {
-      const gender = i % 2 === 0 ? 'men' : 'women';
-      const randomNum = Math.floor(Math.random() * 90) + 1;
-      members.push({
-        id: i + 1,
-        name: names[i],
-        role: roles[i % roles.length],
-        image: `https://randomuser.me/api/portraits/${gender}/${randomNum}.jpg`,
-        bio: `Experienced professional with expertise in ${roles[i % roles.length]}. Passionate about innovation and collaboration.`
-      });
-    }
-    membersRef.current = members;
+  const showMember = useCallback((index: number) => {
+    currentMemberIndexRef.current = index;
+    const member = membersRef.current[index];
     
-    createCircle();
-    
-    // Show first member after a delay
-    setTimeout(() => {
-      showMember(0);
-      startAutoShow();
-    }, 1000);
-    
-    return () => {
-      if (autoShowIntervalRef.current) {
-        clearInterval(autoShowIntervalRef.current);
+    // Update active class on member circles with smooth transition
+    document.querySelectorAll('.member-circle').forEach((circle, i) => {
+      if (i === index) {
+        circle.classList.add('active');
+      } else {
+        circle.classList.remove('active');
       }
-    };
+    });
+    
+    // Update center info
+    if (typeof document !== 'undefined') {
+      const centerNumber = document.getElementById('centerNumber');
+      const centerName = document.getElementById('centerName');
+      const centerRole = document.getElementById('centerRole');
+      const centerBio = document.getElementById('centerBio');
+      const centerImage = document.getElementById('centerImage') as HTMLImageElement;
+      
+      if (centerNumber) centerNumber.textContent = `MEMBER ${String(member.id).padStart(2, '0')}`;
+      if (centerName) centerName.textContent = member.name.toUpperCase();
+      if (centerRole) centerRole.textContent = member.role.toUpperCase();
+      if (centerBio) centerBio.textContent = member.bio;
+      if (centerImage) {
+        centerImage.src = member.image;
+        centerImage.alt = member.name;
+      }
+    }
+    
+    // Show detail view with smooth transition
+    if (centerInfoRef.current) {
+      centerInfoRef.current.classList.add('show-details');
+    }
   }, []);
 
-  const createCircle = () => {
+  const createCircle = useCallback(() => {
     if (!containerRef.current) return;
     
     // Clear existing member circles
@@ -87,54 +99,20 @@ export default function TeamPage() {
       memberDiv.setAttribute('data-index', index.toString());
       memberDiv.style.left = `calc(50% + ${x}px - ${memberSize / 2}px)`;
       memberDiv.style.top = `calc(50% + ${y}px - ${memberSize / 2}px)`;
-      memberDiv.innerHTML = `<img src="${member.image}" alt="${member.name}">`;
-      memberDiv.onclick = () => showMember(index);
+      memberDiv.innerHTML = `<img src="${member.image}" alt="${member.name}" loading="lazy">`;
       
-      // Add touch event for better mobile experience
+      // Use passive event listeners for better performance
+      memberDiv.addEventListener('click', () => showMember(index), { passive: true });
       memberDiv.addEventListener('touchstart', (e) => {
         e.preventDefault();
         showMember(index);
-      });
+      }, { passive: false });
       
       containerRef.current?.appendChild(memberDiv);
     });
-  };
+  }, [showMember]);
 
-  const showMember = (index: number) => {
-    currentMemberIndexRef.current = index;
-    const member = membersRef.current[index];
-    
-    // Update active class on member circles with smooth transition
-    document.querySelectorAll('.member-circle').forEach((circle, i) => {
-      if (i === index) {
-        circle.classList.add('active');
-      } else {
-        circle.classList.remove('active');
-      }
-    });
-    
-    // Update center info
-    if (typeof document !== 'undefined') {
-      const centerNumber = document.getElementById('centerNumber');
-      const centerName = document.getElementById('centerName');
-      const centerRole = document.getElementById('centerRole');
-      const centerBio = document.getElementById('centerBio');
-      const centerImage = document.getElementById('centerImage') as HTMLImageElement;
-      
-      if (centerNumber) centerNumber.textContent = `MEMBER ${String(member.id).padStart(2, '0')}`;
-      if (centerName) centerName.textContent = member.name.toUpperCase();
-      if (centerRole) centerRole.textContent = member.role.toUpperCase();
-      if (centerBio) centerBio.textContent = member.bio;
-      if (centerImage) centerImage.src = member.image;
-    }
-    
-    // Show detail view with smooth transition
-    if (centerInfoRef.current) {
-      centerInfoRef.current.classList.add('show-details');
-    }
-  };
-
-  const startAutoShow = () => {
+  const startAutoShow = useCallback(() => {
     if (autoShowIntervalRef.current) {
       clearInterval(autoShowIntervalRef.current);
     }
@@ -144,9 +122,33 @@ export default function TeamPage() {
       currentMemberIndexRef.current = (currentMemberIndexRef.current + 1) % 40;
       showMember(currentMemberIndexRef.current);
     }, 3000); // 3 seconds instead of 4
-  };
+  }, [showMember]);
 
-  const handleCenterClick = () => {
+  // Function to restart all animations
+  const restartAllAnimations = useCallback(() => {
+    // Clear existing intervals
+    if (autoShowIntervalRef.current) {
+      clearInterval(autoShowIntervalRef.current);
+      autoShowIntervalRef.current = null;
+    }
+    
+    // Recreate the circle layout
+    createCircle();
+    
+    // Reset to first member
+    currentMemberIndexRef.current = 0;
+    showMember(0);
+    
+    // Restart auto show
+    setTimeout(() => {
+      startAutoShow();
+    }, 500);
+  }, [createCircle, showMember, startAutoShow]);
+
+  // Use our custom hook for page restart functionality
+  usePageRestart(restartAllAnimations);
+
+  const handleCenterClick = useCallback(() => {
     if (autoShowIntervalRef.current) {
       clearInterval(autoShowIntervalRef.current);
       autoShowIntervalRef.current = null;
@@ -159,14 +161,78 @@ export default function TeamPage() {
         centerInfoRef.current.style.opacity = '1';
       }
     }
-  };
+  }, [startAutoShow]);
+
+  // Initialize members
+  useEffect(() => {
+    setIsClient(true);
+    
+    const members: Member[] = [];
+    for (let i = 0; i < 40; i++) {
+      const gender = i % 2 === 0 ? 'men' : 'women';
+      const randomNum = Math.floor(Math.random() * 90) + 1;
+      members.push({
+        id: i + 1,
+        name: names[i],
+        role: roles[i % roles.length],
+        image: `https://randomuser.me/api/portraits/${gender}/${randomNum}.jpg`,
+        bio: `Experienced professional with expertise in ${roles[i % roles.length]}. Passionate about innovation and collaboration.`
+      });
+    }
+    membersRef.current = members;
+    
+    // Use requestAnimationFrame for better performance
+    requestAnimationFrame(() => {
+      createCircle();
+      
+      // Show first member after a delay
+      setTimeout(() => {
+        showMember(0);
+        startAutoShow();
+      }, 1000);
+    });
+    
+    // Add page visibility change listener
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Page is hidden
+        pageVisibilityRef.current = false;
+        if (autoShowIntervalRef.current) {
+          clearInterval(autoShowIntervalRef.current);
+          autoShowIntervalRef.current = null;
+        }
+      } else {
+        // Page is visible again - restart everything
+        pageVisibilityRef.current = true;
+        restartAllAnimations();
+      }
+    };
+    
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    
+    // Mark that we've initialized the page
+    markPageAsActive('team');
+    
+    return () => {
+      if (autoShowIntervalRef.current) {
+        clearInterval(autoShowIntervalRef.current);
+      }
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      
+      // Clean up the class when component unmounts
+      markPageAsInactive('team');
+    };
+  }, [createCircle, showMember, startAutoShow, restartAllAnimations]);
 
   useEffect(() => {
-    let resizeTimeout: NodeJS.Timeout;
-    
     const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      resizeTimeoutRef.current = setTimeout(() => {
         createCircle();
         if (centerInfoRef.current?.classList.contains('show-details')) {
           showMember(currentMemberIndexRef.current);
@@ -174,19 +240,26 @@ export default function TeamPage() {
       }, 300);
     };
     
-    window.addEventListener('resize', handleResize);
+    // Use passive event listener for better performance
+    window.addEventListener('resize', handleResize, { passive: true });
     
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (resizeTimeout) clearTimeout(resizeTimeout);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
     };
-  }, []);
+  }, [createCircle, showMember]);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <div>
       <div className="header">
+        <Link href="/" className="back-link">← BACK</Link>
         <h1>TEAM</h1>
-        <p>40 MEMBERS</p>
       </div>
 
       <div className="main-content">
@@ -221,6 +294,9 @@ export default function TeamPage() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="team-footer">
+          <p>40 MEMBERS</p>
         </div>
       </div>
     </div>
