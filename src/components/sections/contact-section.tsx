@@ -42,7 +42,7 @@ const ContactSection = () => {
   const parallaxValue = (scrollY - elementTop) * 0.1;
 
   return (
-    <section id="contact-us" className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
+    <section id="contact-us" className="py-0 relative overflow-hidden">
       <div className="container relative z-10">
         {/* Center all content in a single column */}
         <div className="max-w-3xl mx-auto text-center">

@@ -79,31 +79,31 @@ const FeatureCard = ({ item, index, isMobile }: { item: typeof appFeatures[0], i
           delay: index * 0.05
         }}
       >
-        <div className="relative overflow-hidden rounded-2xl bg-black border border-white/20 group transition-all duration-300">
+        <div className="relative overflow-hidden rounded-3xl bg-black border border-white/20 group transition-all duration-300">
           {/* Simplified image container */}
           <div className="relative overflow-hidden">
             <Image
               src={item.imageUrl}
               alt={item.imageAlt}
-              width={300}
-              height={200}
-              className="w-full h-[180px] object-cover"
+              width={400}
+              height={300}
+              className="w-full h-[260px] object-cover"
               priority={index < 2}
             />
           </div>
           
           {/* Content area */}
-          <div className="p-4 space-y-3">
+          <div className="p-5 space-y-4">
             <h3
-              className="text-[16px] font-bold leading-[1.2] text-white"
+              className="text-[18px] font-bold leading-[1.2] text-white"
               dangerouslySetInnerHTML={{ __html: item.titleHtml }}
             />
-            <p className="text-[13px] leading-[1.4] text-gray-300">
+            <p className="text-[14px] leading-[1.4] text-gray-300">
               {item.description}
             </p>
             
             {/* Coming soon badge */}
-            <div className="flex items-center gap-1 text-[11px] font-bold">
+            <div className="flex items-center gap-1 text-[12px] font-bold">
               <span className="text-yellow-500">✨ Coming Soon</span>
             </div>
           </div>
@@ -123,25 +123,25 @@ const FeatureCard = ({ item, index, isMobile }: { item: typeof appFeatures[0], i
         <Image
           src={item.imageUrl}
           alt={item.imageAlt}
-          width={500}
-          height={300}
-          className="w-full h-[120px] sm:h-[140px] md:h-[200px] object-cover transition-all duration-500 group-hover:scale-110"
+          width={600}
+          height={400}
+          className="w-full h-[200px] sm:h-[220px] md:h-[300px] object-cover transition-all duration-500 group-hover:scale-110"
           priority={index < 2}
         />
       </div>
       
       {/* Content area */}
-      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3 relative z-10">
+      <div className="p-4 sm:p-5 space-y-3 sm:space-y-4 relative z-10">
         <h3
-          className="text-[14px] sm:text-[16px] md:text-[clamp(16px,2.5vw,24px)] font-extrabold leading-[1.1] text-white"
+          className="text-[16px] sm:text-[18px] md:text-[clamp(18px,2.5vw,28px)] font-extrabold leading-[1.1] text-white"
           dangerouslySetInnerHTML={{ __html: item.titleHtml }}
         />
-        <p className="text-[11px] sm:text-[12px] md:text-[14px] leading-[1.4] sm:leading-[1.5] text-white/80 line-clamp-2">
+        <p className="text-[12px] sm:text-[14px] md:text-[16px] leading-[1.4] sm:leading-[1.5] text-white/80 line-clamp-2">
           {item.description}
         </p>
         
         {/* Coming soon badge with gold accent */}
-        <div className="flex items-center gap-1 sm:gap-2 text-[9px] sm:text-[10px] md:text-[11px] font-extrabold">
+        <div className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-[11px] md:text-[12px] font-extrabold">
           <span className="text-yellow-500 animate-pulse">✨ Coming Soon</span>
         </div>
       </div>
@@ -281,7 +281,7 @@ const PortfolioGrid = () => {
           {/* Mobile: Single card carousel */}
           {isMobile ? (
             <div className="flex flex-col items-center">
-              <div className="w-full max-w-[300px] mx-auto">
+              <div className="w-full max-w-[340px] mx-auto">
                 <FeatureCard 
                   item={appFeatures[currentIndex]} 
                   index={currentIndex} 
@@ -309,11 +309,11 @@ const PortfolioGrid = () => {
             /* Desktop: Horizontal scrolling */
             <>
               <div className="overflow-x-auto pb-4" style={{ overflowY: 'hidden' }}>
-                <div className="flex gap-3 sm:gap-4 md:gap-6 w-max px-4">
+                <div className="flex gap-4 sm:gap-5 md:gap-8 w-max px-4">
                   {appFeatures.map((item, index) => (
                     <div 
                       key={item.index} 
-                      className="flex-shrink-0 w-[240px] sm:w-[280px] md:w-[320px]"
+                      className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px]"
                     >
                       <FeatureCard item={item} index={index} isMobile={isMobile} />
                     </div>

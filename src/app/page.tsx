@@ -85,14 +85,12 @@ export default function Home() {
           </ScrollFromGround>
         </div>
         <div ref={contactRef} id="contact-us">
-          <ScrollFromGround delay={400} animationType="rise">
-            <ContactSection />
-          </ScrollFromGround>
+          {/* Removed ScrollFromGround to eliminate spacing */}
+          <ContactSection />
         </div>
         <div ref={teamRef} id="team">
-          <ScrollFromGround delay={450} animationType="rise">
-            <TeamSection />
-          </ScrollFromGround>
+          {/* Removed ScrollFromGround to eliminate spacing */}
+          <TeamSection />
         </div>
         {/* Removed HelloSection component */}
       </div>
