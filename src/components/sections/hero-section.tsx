@@ -55,6 +55,16 @@ const HeroSection = () => {
     }
   };
 
+  const scrollToContactSection = () => {
+    const contactSection = document.getElementById('contact-us');
+    if (contactSection) {
+      contactSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+  
   // Calculate parallax effect for floating particles
   const parallaxParticles = scrollY * 0.2;
   
@@ -225,7 +235,10 @@ const HeroSection = () => {
 
               {/* Decorative Circle with Download Button */}
               <div className={`relative flex items-center justify-center py-2 transition-all duration-1000 delay-700 ${isMounted ? 'opacity-100' : 'opacity-0'} mt-10 md:mt-0`}>
-                <div className="relative w-32 h-32">
+                <div 
+                  className="relative w-32 h-32 cursor-pointer"
+                  onClick={scrollToContactSection}
+                >
                   {/* Rotating circle background */}
                   <div 
                     className="absolute inset-0"
