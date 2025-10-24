@@ -9,8 +9,7 @@ const NavigationHeader = () => {
         { href: '#work', label: 'Work' },
         { href: '#recognition', label: 'Recognition' },
         { href: '#contact-us', label: 'Contact us' },
-        { href: '#hello', label: 'Hello' },
-        { href: '/team', label: 'Team' }, // Added Team link
+        // Removed Hello link
     ];
 
     // The original HTML repeats the content many times for a smooth visual. Duplicating it once is sufficient for a seamless loop effect.

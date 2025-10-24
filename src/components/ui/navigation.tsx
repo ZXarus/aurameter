@@ -15,7 +15,6 @@ const navItems = [
   { href: "/navbars", label: "Navbars" },
   { href: "/pricing", label: "Pricing" },
   { href: "/stats", label: "Stats" },
-  { href: "/team", label: "Team" },
   { href: "/testimonial", label: "Testimonials" },
 ];
 

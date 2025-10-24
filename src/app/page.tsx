@@ -6,7 +6,8 @@ import AboutSection from '@/components/sections/about-section';
 import PortfolioGrid from '@/components/sections/portfolio-grid';
 import AwardsSection from '@/components/sections/awards-section';
 import ContactSection from '@/components/sections/contact-section';
-import HelloSection from '@/components/sections/hello-section';
+// Removed HelloSection import
+import TeamSection from '@/components/sections/team-section';
 import Footer from '@/components/sections/footer';
 import { useSmoothScroll } from '@/lib/hooks/use-smooth-scroll';
 import { useEffect, useState, useRef } from 'react';
@@ -24,7 +25,8 @@ export default function Home() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const awardsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
-  const helloRef = useRef<HTMLDivElement>(null);
+  // Removed helloRef
+  const teamRef = useRef<HTMLDivElement>(null);
   
   // Scroll to top on page load and check for mobile
   useEffect(() => {
@@ -53,7 +55,8 @@ export default function Home() {
   const portfolioVisible = isElementInViewport(portfolioRef.current);
   const awardsVisible = isElementInViewport(awardsRef.current);
   const contactVisible = isElementInViewport(contactRef.current);
-  const helloVisible = isElementInViewport(helloRef.current);
+  // Removed helloVisible
+  const teamVisible = isElementInViewport(teamRef.current);
 
   return (
     <main className="min-h-screen w-full bg-black text-white overflow-x-hidden">
@@ -86,11 +89,12 @@ export default function Home() {
             <ContactSection />
           </ScrollFromGround>
         </div>
-        <div ref={helloRef} id="hello">
-          <ScrollFromGround delay={500} animationType="rise">
-            <HelloSection />
+        <div ref={teamRef} id="team">
+          <ScrollFromGround delay={450} animationType="rise">
+            <TeamSection />
           </ScrollFromGround>
         </div>
+        {/* Removed HelloSection component */}
       </div>
       
       <Footer />
