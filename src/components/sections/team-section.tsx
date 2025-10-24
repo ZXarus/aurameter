@@ -260,6 +260,16 @@ const TeamSection = () => {
               </div>
             </div>
           </div>
+          
+          {/* About Team Button - Positioned below the main content */}
+          <div className="mt-8 md:mt-12 flex justify-center">
+            <a 
+              href="/team"
+              className="px-6 py-2 bg-yellow-500 text-black font-serif font-bold italic text-sm md:text-base rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg inline-block"
+            >
+              About Team
+            </a>
+          </div>
         </div>
       </div>
     </section>
