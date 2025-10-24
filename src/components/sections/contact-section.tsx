@@ -56,8 +56,8 @@ const ContactSection = () => {
               }}
             >
               <span className="block">Join the</span>
-              <span className="block text-yellow-400">
-                <span className="text-yellow-300 font-semibold">Aura</span>Meter
+              <span className="block text-yellow-400 font-serif italic font-bold">
+                <span className="text-yellow-300 font-bold">Aura</span>Meter
               </span>
               <span className="block">Revolution</span>
             </h2>
