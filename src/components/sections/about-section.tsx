@@ -134,7 +134,7 @@ const AboutSection = () => {
           {/* Centered content inside the rotating circles */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
             <h2 
-              className="text-[36px] md:text-[50px] font-extrabold leading-[1.1] tracking-tight mb-8 font-serif italic text-yellow-400"
+              className="text-[32px] md:text-[42px] font-extrabold leading-[1.1] tracking-tight mb-6 font-serif italic text-yellow-400"
               style={{
                 fontFamily:'var(--font-display-serif)',
               }}
@@ -143,9 +143,9 @@ const AboutSection = () => {
             </h2>
             
             <div className="max-w-[920px] mx-auto animate-fade-in">
-              <ul className="text-[clamp(20px,2.5vw,30px)] leading-[1.2] tracking-normal flex flex-col items-center gap-y-2" style={{fontFamily:'var(--font-display-serif)'}}>
+              <ul className="text-[clamp(16px,2vw,24px)] leading-[1.2] tracking-normal flex flex-col items-center gap-y-1" style={{fontFamily:'var(--font-display-serif)'}}>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
+                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.1s'
                   } : { 
@@ -158,7 +158,7 @@ const AboutSection = () => {
                   <em className="italic text-yellow-400 font-extrabold">Stories</em>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
+                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.2s'
                   } : { 
@@ -171,7 +171,7 @@ const AboutSection = () => {
                   <em className="italic text-white font-extrabold">Companion</em>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
+                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.3s'
                   } : { 
@@ -184,7 +184,7 @@ const AboutSection = () => {
                   <span className="font-extrabold text-yellow-400">Intelligence</span>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
+                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.4s'
                   } : { 
@@ -197,7 +197,7 @@ const AboutSection = () => {
                   <span className="font-extrabold text-white">Rewards</span>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
+                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.5s'
                   } : { 
@@ -210,7 +210,7 @@ const AboutSection = () => {
                   <span className="text-yellow-300 font-extrabold font-serif">Energy</span>
                 </li>
                 <li 
-                  className="flex flex-wrap items-baseline gap-x-3 md:gap-x-4 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
+                  className="flex flex-wrap items-baseline gap-x-2 md:gap-x-3 animate-slide-in-up justify-center uppercase font-extrabold italic font-serif" 
                   style={isMobile ? { 
                     animationDelay: '0.6s'
                   } : { 
@@ -226,9 +226,9 @@ const AboutSection = () => {
             </div>
             
             {/* Know More button */}
-            <div className="mt-10 flex justify-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="mt-6 flex justify-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
               <button 
-                className="px-5 py-2 border-2 border-yellow-400 text-yellow-400 font-extrabold uppercase tracking-wider hover:bg-yellow-400 hover:text-black transition-all duration-300 text-sm font-serif italic rounded-full"
+                className="px-3 py-1 border border-yellow-400 text-yellow-400 font-extrabold uppercase tracking-wider hover:bg-yellow-400 hover:text-black transition-all duration-300 text-[10px] font-serif italic"
                 style={{ fontFamily: 'var(--font-display-serif)' }}
               >
                 Know More
