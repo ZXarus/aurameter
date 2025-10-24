@@ -228,7 +228,7 @@ const AboutSection = () => {
             {/* Know More button */}
             <div className="mt-6 flex justify-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
               <button 
-                className="px-3 py-1 border border-yellow-400 text-yellow-400 font-extrabold uppercase tracking-wider hover:bg-yellow-400 hover:text-black transition-all duration-300 text-[10px] font-serif italic"
+                className="px-3 py-1 border border-white text-white font-extrabold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 text-[10px] font-serif italic"
                 style={{ fontFamily: 'var(--font-display-serif)' }}
               >
                 Know More

@@ -59,7 +59,7 @@ const AwardsSection = () => {
   }, []);
 
   return (
-    <section className={`${sectionPadding} bg-black`} ref={sectionRef}>
+    <section className={`${sectionPadding} bg-black mb-16`} ref={sectionRef}>
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center lg:items-start justify-between">
         {/* Left side - Heading */}
         <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0 text-center lg:text-left">
