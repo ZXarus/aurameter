@@ -21,10 +21,9 @@ const NavigationHeader = () => {
 
     const navLinks = [
         { href: '#about-section', label: 'About' },
-        { href: '#work', label: 'Work' },
-        { href: '#recognition', label: 'Rewards' },
-        { href: '#contact-us', label: 'Join us' },
-        // Removed Hello link
+        { href: '#problem', label: 'Problem' },
+        { href: '#solution', label: 'Solution' },
+        { href: '#cta', label: 'Join us' },
     ];
 
     // The original HTML repeats the content many times for a smooth visual. Duplicating it once is sufficient for a seamless loop effect.
@@ -60,7 +59,7 @@ const NavigationHeader = () => {
 
             {/* Navigation Bar */}
             <nav className={`w-full flex items-center justify-between px-4 sm:px-5 md:px-10 lg:px-20 transition-all duration-300 ${
-                isScrolled ? 'py-2' : 'py-3'
+                isScrolled ? 'py-1' : 'py-2'
             } animate-fade-in`}>
                 <Link href="/#hero" aria-label="Go to homepage" className="animate-slide-in-left">
                     <Image

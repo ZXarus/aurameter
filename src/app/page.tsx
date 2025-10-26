@@ -1,98 +1,50 @@
 "use client";
 
+import LoadingPage from '@/components/sections/loading-page';
 import NavigationHeader from '@/components/sections/navigation-header';
-import HeroSection from '@/components/sections/hero-section';
-import AboutSection from '@/components/sections/about-section';
-import PortfolioGrid from '@/components/sections/portfolio-grid';
-import AwardsSection from '@/components/sections/awards-section';
-import ContactSection from '@/components/sections/contact-section';
-// Removed HelloSection import
-import TeamSection from '@/components/sections/team-section';
+import NewHeroSection from '@/components/sections/new-hero-section';
+import NewAboutSection from '@/components/sections/new-about-section';
+import ProblemSection from '@/components/sections/problem-section';
+import SolutionSection from '@/components/sections/solution-section';
+import WhyNowSection from '@/components/sections/why-now-section';
+import FinalCTASection from '@/components/sections/final-cta-section';
 import Footer from '@/components/sections/footer';
-import { useSmoothScroll } from '@/lib/hooks/use-smooth-scroll';
-import { useEffect, useState, useRef } from 'react';
-import BackToTop from '@/components/ui/back-to-top';
-import ScrollEffects from '@/components/ui/scroll-effects';
-import ModernAnimations from '@/components/ui/modern-animations';
-import ScrollFromGround from '@/components/ui/scroll-from-ground';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  useSmoothScroll();
-  
-  const [scrollY, setScrollY] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const aboutRef = useRef<HTMLDivElement>(null);
-  const portfolioRef = useRef<HTMLDivElement>(null);
-  const awardsRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  // Removed helloRef
-  const teamRef = useRef<HTMLDivElement>(null);
-  
-  // Scroll to top on page load and check for mobile
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
-    // Check if device is mobile
-    const mobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    setIsMobile(mobile);
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [showLoading, setShowLoading] = useState(true);
 
-  // Check if elements are in viewport
-  const isElementInViewport = (element: HTMLElement | null) => {
-    if (!element) return false;
-    const rect = element.getBoundingClientRect();
-    return rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+  const handleLoadingComplete = () => {
+    setShowLoading(false);
   };
 
-  const aboutVisible = isElementInViewport(aboutRef.current);
-  const portfolioVisible = isElementInViewport(portfolioRef.current);
-  const awardsVisible = isElementInViewport(awardsRef.current);
-  const contactVisible = isElementInViewport(contactRef.current);
-  // Removed helloVisible
-  const teamVisible = isElementInViewport(teamRef.current);
+  if (showLoading) {
+    return <LoadingPage onComplete={handleLoadingComplete} />;
+  }
 
   return (
     <main className="min-h-screen w-full bg-black text-white overflow-x-hidden">
-      <ModernAnimations />
-      {!isMobile && <ScrollEffects />}
       <NavigationHeader />
-      <BackToTop />
       
       <div className="space-y-0 w-full">
-        <div id="hero" className="relative w-full">
-          <HeroSection />
+        <div id="hero">
+          <NewHeroSection />
         </div>
-        <div ref={aboutRef} id="about-section">
-          <ScrollFromGround delay={100} animationType="rise">
-            <AboutSection />
-          </ScrollFromGround>
+        <div id="about-section">
+          <NewAboutSection />
         </div>
-        <div ref={portfolioRef} id="work">
-          <ScrollFromGround delay={200} animationType="pop">
-            <PortfolioGrid />
-          </ScrollFromGround>
+        <div id="problem">
+          <ProblemSection />
         </div>
-        <div ref={awardsRef} id="recognition">
-          <ScrollFromGround delay={300} animationType="slide">
-            <AwardsSection />
-          </ScrollFromGround>
+        <div id="solution">
+          <SolutionSection />
         </div>
-        <div ref={contactRef} id="contact-us">
-          {/* Removed ScrollFromGround to eliminate spacing */}
-          <ContactSection />
+        <div id="why-now">
+          <WhyNowSection />
         </div>
-        <div ref={teamRef} id="team">
-          {/* Removed ScrollFromGround to eliminate spacing */}
-          <TeamSection />
+        <div id="cta">
+          <FinalCTASection />
         </div>
-        {/* Removed HelloSection component */}
       </div>
       
       <Footer />
