@@ -248,7 +248,7 @@ const PortfolioGrid = () => {
     <section 
       ref={sectionRef} 
       id="work" 
-      className="relative py-12 sm:py-16 md:py-24 overflow-hidden"
+      className="relative py-20 sm:py-24 md:py-32 px-4 md:px-8 overflow-hidden"
     >
       {/* Animated background elements with parallax - Reduced for mobile performance */}
       {!isMobile && (

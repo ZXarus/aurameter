@@ -54,7 +54,7 @@ const AboutSection = () => {
   const waveEffect = Math.sin(scrollY * 0.03) * 15;
 
   return (
-    <section id="about-section" className={`relative overflow-hidden py-16 md:py-24 text-neutral-100 ${displaySerif.variable}`}>
+    <section id="about-section" className={`relative overflow-hidden py-20 md:py-32 px-4 md:px-8 text-neutral-100 ${displaySerif.variable}`}>
       {/* Backdrop texture with parallax - simplified for mobile */}
       {!isMobile && (
         <div 

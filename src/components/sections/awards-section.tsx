@@ -25,7 +25,7 @@ const AwardsSection = () => {
   const textSize = isMobile ? 'text-[10px]' : 'text-sm';
   const titleSize = isMobile ? 'text-[11px]' : 'text-sm';
   const descriptionSize = isMobile ? 'text-[8px]' : 'text-xs';
-  const sectionPadding = isMobile ? 'py-8' : 'py-20';
+  const sectionPadding = isMobile ? 'py-12 px-4' : 'py-24 px-8';
   const headingSize = isMobile ? 'text-3xl' : 'text-6xl';
   const headingSizeMd = isMobile ? 'text-4xl' : 'text-[120px]';
   const containerWidth = isMobile ? 'w-[260px]' : 'w-full'; // As per mobile visibility requirements

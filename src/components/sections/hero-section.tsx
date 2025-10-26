@@ -12,8 +12,8 @@ const AnimatedBackgroundText = ({ scrollY, isMobile }: { scrollY: number, isMobi
       return null;
     }
     
-    const text = "AuraMeter • AuraMeter • AuraMeter • AuraMeter • ";
-    const repeatedText = text.repeat(6);
+    const text = " AuraMeter • AuraMeter • AuraMeter • AuraMeter • ";
+    const repeatedText = text.repeat(3);
 
     return (
         <div 
@@ -130,7 +130,7 @@ const HeroSection = () => {
           }
         `}
       </style>
-      <section className="relative flex items-center justify-center min-h-screen text-foreground overflow-hidden py-0">
+      <section className="relative flex items-center justify-center min-h-screen text-foreground overflow-hidden pt-16 pb-0">
         <AnimatedBackgroundText scrollY={scrollY} isMobile={isMobile} />
         
         {/* Floating particles with parallax effect - Reduced for mobile performance */}
@@ -158,7 +158,7 @@ const HeroSection = () => {
         
 
         <div className="relative z-10 w-full container py-0 mt-0">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center min-h-[30vh] pt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center min-h-[60vh] pt-0">
             
             {/* Main Artistic Typography - Left/Center */}
             <div className="lg:col-span-7 xl:col-span-8 pt-0 mt-0">
@@ -169,7 +169,6 @@ const HeroSection = () => {
                     transform: `translateY(${scrollY * 0.05}px)`
                   }}
                 >
-                  <span className="block animate-pulse-slow mt-0 pt-0 font-serif italic font-bold text-[clamp(60px,12vw,150px)] md:text-[clamp(50px,10vw,150px)]">AuraMeter</span>
                   <span className="block mt-2 pt-2 text-[clamp(50px,10vw,150px)]">Social Media</span>
                   <span className="block mt-2 pt-2 italic font-serif text-[clamp(50px,10vw,150px)]">that Heals</span>
                 </h1>
@@ -234,9 +233,9 @@ const HeroSection = () => {
               </div>
 
               {/* Decorative Circle with Download Button */}
-              <div className={`relative flex items-center justify-center py-2 transition-all duration-1000 delay-700 ${isMounted ? 'opacity-100' : 'opacity-0'} mt-10 md:mt-0`}>
+              <div className={`relative flex items-center justify-center py-8 transition-all duration-1000 delay-700 ${isMounted ? 'opacity-100' : 'opacity-0'} mt-10 md:mt-0`}>
                 <div 
-                  className="relative w-32 h-32 cursor-pointer"
+                  className="relative w-40 h-40 md:w-44 md:h-44 cursor-pointer"
                   onClick={scrollToContactSection}
                 >
                   {/* Rotating circle background */}
@@ -255,17 +254,17 @@ const HeroSection = () => {
                   </div>
                   
                   {/* Download text inside the circle */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-2 z-10">
-                    <p className="text-[12px] font-bold leading-tight text-yellow-400">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-3 z-10">
+                    <p className="text-[16px] md:text-[16px] font-bold  Lato  text-yellow-400">
                       DOWNLOAD & 
                     </p>
-                    <p className="text-[10px] font-bold italic text-yellow-400 mt-1">
+                    <p className="text-[12px] md:text-[14px] font-bold italic Playfair Display  text-yellow-400 mt-1">
                       START FARMING
                     </p>
                   </div>
                   
                   {/* Simple golden border */}
-                  <div className="absolute inset-0 rounded-full border-2 border-yellow-400/50"></div>
+                  <div className="absolute inset-0 rounded-full border-2 border-yellow-500/50"></div>
                 </div>
               </div>
 
@@ -275,14 +274,14 @@ const HeroSection = () => {
         
         {/* Scroll Down Indicator */}
         <div 
-          className="absolute bottom-1 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer transition-all duration-300"
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-pulse cursor-pointer transition-all duration-300"
           onClick={scrollToNextSection}
           style={isMobile ? {} : { 
-            transform: `translateX(-50%) translateY(${waveEffect}px)`,
+            transform: `translateX(-50%) translateY(${waveEffect * 0.3}px)`,
             opacity: Math.max(0, 1 - scrollY * 0.001)
           }}
         >
-          <ChevronDownIcon className="w-4 h-4 text-white/60 hover:text-white transition-colors" />
+          <ChevronDownIcon className="w-8 h-8 text-white/90 hover:text-yellow-400 transition-colors" />
         </div>
       </section>
     </>

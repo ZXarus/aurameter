@@ -2,8 +2,23 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 const NavigationHeader = () => {
+    const [scrollY, setScrollY] = useState(0);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            setScrollY(currentScrollY);
+            setIsScrolled(currentScrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const navLinks = [
         { href: '#about-section', label: 'About' },
         { href: '#work', label: 'Work' },
@@ -16,7 +31,11 @@ const NavigationHeader = () => {
     const marqueeSpans = Array(22).fill(null);
 
     return (
-        <header className="relative w-full text-white bg-black sticky top-0 z-50">
+        <header className={`fixed w-full text-white z-50 transition-all duration-300 ${
+            isScrolled 
+                ? 'bg-black/95 backdrop-blur-md border-b border-white/10 shadow-lg' 
+                : 'bg-black'
+        }`}>
             {/* Scrolling Marquee Banner */}
             <div className="w-full overflow-hidden bg-black text-white">
                 <Link href="/?archive=true" aria-label="View Synchronized Archive">
@@ -40,7 +59,9 @@ const NavigationHeader = () => {
             </div>
 
             {/* Navigation Bar */}
-            <nav className="w-full bg-black flex items-center justify-between px-4 sm:px-5 md:px-10 lg:px-20 py-3 animate-fade-in">
+            <nav className={`w-full flex items-center justify-between px-4 sm:px-5 md:px-10 lg:px-20 transition-all duration-300 ${
+                isScrolled ? 'py-2' : 'py-3'
+            } animate-fade-in`}>
                 <Link href="/#hero" aria-label="Go to homepage" className="animate-slide-in-left">
                     <Image
                         src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/90045eb5-1278-4866-96fd-694b701cd2a9-synchronized-studio/assets/svgs/logo-full-1.svg"

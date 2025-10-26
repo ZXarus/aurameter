@@ -312,6 +312,28 @@
       opacity: 1;
     }
   }
+  
+  @keyframes navSlideDown {
+    0% { 
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% { 
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-nav-slide-down {
+    animation: navSlideDown 0.3s ease-out forwards;
+  }
+  
+  /* Smooth backdrop blur support */
+  @supports (backdrop-filter: blur(10px)) {
+    .backdrop-blur-md {
+      backdrop-filter: blur(12px);
+    }
+  }
 }
 
 .animate-page-reveal {
@@ -405,11 +427,17 @@
     body {
       background: #000000;
       line-height: 1.6;
+      padding-top: 0;
     }
     
     body::before {
       animation: none;
       background: none;
+    }
+    
+    /* Ensure proper spacing on mobile with fixed nav */
+    main {
+      padding-top: 0;
     }
   }
 
